@@ -1,0 +1,23 @@
+
+.container__navbar{
+    display: flex;
+    flex-direction: row;
+    color: white;
+
+}
+.container__navbar li {
+    margin: 20px;
+    transition: all .3s;
+}
+.container__navbar li:hover{
+    scale: 1.1;
+}
+.container__navbar{
+    list-style-type: none;
+}
+.container__navbar a{
+    display: flex;
+    text-decoration: none;
+    color: white;
+    transition: all .3s;
+}

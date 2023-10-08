@@ -1,0 +1,27 @@
+.container__auth{
+    display: flex;
+    margin-right: 25px;
+}
+.auth__button{
+    text-decoration: none;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    border: 1px solid rgb(255, 255, 255);
+    transition: all .3s;
+}
+.login:hover{
+    background-color: #f1ffcd;
+    color: black;
+}
+.logout:hover{  
+    background-color: #ffcdcd;
+    color: black;
+}
+.container__auth a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
