@@ -1,0 +1,69 @@
+.product__info__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+}
+.product__image {
+  width: 200px;
+}
+.product__price {
+  text-align: center;
+  width: 160px;
+  height: auto;
+  padding: 10px;
+  box-shadow: 3px 7px 20px rgba(0, 0, 0, 0.25), 0 5px 10px rgba(0, 0, 0, 0.22);
+  transition: box-shadow 1s, scale 0.3s;
+  border-radius: 10px;
+}
+
+.convert__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.product__button {
+  font-family: "Century Gothic";
+  height: 35px;
+  text-decoration: none;
+  display: inline-block;
+  padding: 20px 30px;
+  margin: 10px 20px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #000000;
+  font-size: 20px;
+  color: black;
+  background: #fff;
+  transition: 0.2s ease-in-out;
+}
+.product__button:before {
+  content: "";
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.5)
+  );
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: -8px;
+  left: -75px;
+  transform: skewX(-45deg);
+}
+.product__button:hover {
+  background: #3d3d3d;
+  color: #fff;
+  cursor: pointer;
+}
+.product__button:hover:before {
+  left: 150px;
+  transition: 0.5s ease-in-out;
+}
+.convert__container > button {
+  padding: 0 1em;
+}

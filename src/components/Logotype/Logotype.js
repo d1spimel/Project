@@ -4,7 +4,7 @@ import styles from "./logotype.css"
 export const Logotype = () => {
     return (
         <div className="container__logotype">
-            <a href="https://google.com">
+            <a href="/">
                 <div className="logotype">
                     <img src={logotype}/>
                 </div>

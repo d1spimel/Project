@@ -1,0 +1,68 @@
+.comment__form {
+  width: 50%;
+  padding: 1em 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.submit__button {
+  font-family: "Century Gothic";
+  text-decoration: none;
+  width: 200px;
+  height: 40px;
+  display: inline-block;
+  margin: 10px auto;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #000000;
+  font-size: 20px;
+  color: black;
+  background: #fff;
+  transition: 0.2s ease-in-out;
+}
+.submit__button:before {
+  content: "";
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.5)
+  );
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: -8px;
+  left: -75px;
+  transform: skewX(-45deg);
+}
+.submit__button:hover {
+  background: #3d3d3d;
+  color: #fff;
+  cursor: pointer;
+}
+.submit__button:hover:before {
+  left: 150px;
+  transition: 0.5s ease-in-out;
+}
+.convert__container > button {
+  padding: 0 1em;
+}
+
+.comment__textarea {
+  font-size: 1em;
+  font-family: "Century Gothic";
+}
+
+.comment__container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding: 2em 0.5em;
+  height: 100%;
+}
+
+.comment {
+  border: 1px solid black;
+  padding: 5px;
+}
