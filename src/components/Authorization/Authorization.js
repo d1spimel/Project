@@ -1,15 +1,19 @@
 import React from "react";
+import useAuthorization from "../../hooks/useAuthorization";
+import useConsoleLogger from "../../hooks/useConsoleLogger";
 import style from "./authorization.css";
 
-export const Authorization = (props) => {
-  const { isAuthorized, onAuthClick } = props;
+export const Authorization = () => {
+  const { isAuthorized, toggleAuthorization } = useAuthorization();
+
+  useConsoleLogger(isAuthorized);
 
   return (
     <div className="container__auth">
       {isAuthorized ? (
         <a
           className="auth__button logout"
-          onClick={() => onAuthClick(!isAuthorized)}
+          onClick={toggleAuthorization}
           href="#login"
         >
           logout
@@ -17,7 +21,7 @@ export const Authorization = (props) => {
       ) : (
         <a
           className="auth__button login"
-          onClick={() => onAuthClick(!isAuthorized)}
+          onClick={toggleAuthorization}
           href="#logout"
         >
           login
