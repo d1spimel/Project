@@ -37,7 +37,7 @@ let products = [
 export const ProductContext = createContext(products)
 
 export const Body = () => {
-  // Массив с путями к изображениям
+  // РњР°СЃСЃРёРІ СЃ РїСѓС‚СЏРјРё Рє РёР·РѕР±СЂР°Р¶РµРЅРёСЏРј
   const imagePaths = [
     "img/1.png",
     "img/2.png",
