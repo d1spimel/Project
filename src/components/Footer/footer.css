@@ -1,4 +1,4 @@
-.footer__container{
+.footer__container {
     background-color: rgb(37, 37, 37);
     width: 100%;
     display: flex;
@@ -8,5 +8,5 @@
     color: white;
     height: 100px;
     font-size: 18px;
-    margin-top: 50px;
+    flex: 1 0 auto;
 }

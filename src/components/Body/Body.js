@@ -1,35 +1,42 @@
 import { Products } from "../Products/Products";
 import { Footer } from "../Footer/Footer";
 import { Header } from "../Header/Header";
+import { About } from "../About/About";
+import { Terms } from "../Terms/Terms";
+import { Contacts } from "../Contacts/Contacts";
 import ProductSheet from "../ProductSheet/ProductSheet";
 import { Route, Routes } from "react-router-dom";
-import { BrowserRouter as Router } from "react-router-dom";
+import { createContext } from "react";
+import Debug from "../Debug/Debug";
+import { HistoryNavigation } from "../HistoryNavigation/HistoryNavigation";
+
+let products = [
+  { name: "iPhone", description: "Smartphone", price: "1000" },
+  { name: "Xiaomi", description: "Smartphone", price: "12000" },
+  { name: "Nokia", description: "Smartphone", price: "11000" },
+  { name: "iPhone", description: "Smartphone", price: "1000" },
+  { name: "Xiaomi", description: "Smartphone", price: "12000" },
+  { name: "Nokia", description: "Smartphone", price: "11000" },
+  { name: "iPhone", description: "Smartphone", price: "1000" },
+  { name: "Xiaomi", description: "Smartphone", price: "12000" },
+  { name: "Nokia", description: "Smartphone", price: "11000" },
+  { name: "iPhone", description: "Smartphone", price: "1000" },
+  { name: "Xiaomi", description: "Smartphone", price: "12000" },
+  { name: "Nokia", description: "Smartphone", price: "11000" },
+  { name: "iPhone", description: "Smartphone", price: "1000" },
+  { name: "Xiaomi", description: "Smartphone", price: "12000" },
+  { name: "Nokia", description: "Smartphone", price: "11000" },
+  { name: "iPhone", description: "Smartphone", price: "1000" },
+  { name: "Xiaomi", description: "Smartphone", price: "12000" },
+  { name: "Nokia", description: "Smartphone", price: "11000" },
+  { name: "iPhone", description: "Smartphone", price: "1000" },
+  { name: "Xiaomi", description: "Smartphone", price: "12000" },
+  { name: "Xiaomi", description: "Smartphone", price: "12000" },
+];
+
+export const ProductContext = createContext(products)
 
 export const Body = () => {
-  let products = [
-    { name: "iPhone", description: "Smartphone", price: "1000" },
-    { name: "Xiaomi", description: "Smartphone", price: "12000" },
-    { name: "Nokia", description: "Smartphone", price: "11000" },
-    { name: "iPhone", description: "Smartphone", price: "1000" },
-    { name: "Xiaomi", description: "Smartphone", price: "12000" },
-    { name: "Nokia", description: "Smartphone", price: "11000" },
-    { name: "iPhone", description: "Smartphone", price: "1000" },
-    { name: "Xiaomi", description: "Smartphone", price: "12000" },
-    { name: "Nokia", description: "Smartphone", price: "11000" },
-    { name: "iPhone", description: "Smartphone", price: "1000" },
-    { name: "Xiaomi", description: "Smartphone", price: "12000" },
-    { name: "Nokia", description: "Smartphone", price: "11000" },
-    { name: "iPhone", description: "Smartphone", price: "1000" },
-    { name: "Xiaomi", description: "Smartphone", price: "12000" },
-    { name: "Nokia", description: "Smartphone", price: "11000" },
-    { name: "iPhone", description: "Smartphone", price: "1000" },
-    { name: "Xiaomi", description: "Smartphone", price: "12000" },
-    { name: "Nokia", description: "Smartphone", price: "11000" },
-    { name: "iPhone", description: "Smartphone", price: "1000" },
-    { name: "Xiaomi", description: "Smartphone", price: "12000" },
-    { name: "Xiaomi", description: "Smartphone", price: "12000" },
-  ];
-
   // Массив с путями к изображениям
   const imagePaths = [
     "img/1.png",
@@ -52,18 +59,25 @@ export const Body = () => {
     });
   }
   return (
-    <Router>
+    <HistoryNavigation>
       <main>
-        <Header />
-        <Routes>
-          <Route
-            path="/:number"
-            element={<ProductSheet products={products} />}
-          />
-          <Route path="/" element={<Products products={products} />} />
-        </Routes>
-        <Footer />
+        <div class="wrapper">
+          <Header />
+            <Routes>
+              <Route
+                path="/:number"
+                element={<ProductSheet/>}
+              />
+              <Route exact path="/" element={<Products/>} />
+              <Route path="/catalog" element={<Products/>}/>
+              <Route path="/terms" element={<Terms/>}/>
+              <Route path="/contacts" element={<Contacts/>}/>
+              <Route path="/about" element={<About/>}/>
+              <Route path="/debug" element={<Debug/>}/>
+            </Routes>
+          <Footer />
+        </div>
       </main>
-    </Router>
+    </HistoryNavigation>
   );
 };

@@ -1,20 +1,24 @@
 import styles from "./navbar.css"
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
     return (
         <ul className="container__navbar">
-          <a href="#">
+          <Link to={"/"}>
             <li>catalog</li>
-          </a>
-          <a href="#">
+          </Link>
+          <Link to={"/terms"}>
             <li>terms of purchase</li>
-          </a>
-          <a href="#">
+          </Link>
+          <Link to={"/contacts"}>
             <li>contacts</li>
-          </a>
-          <a href="#">
+          </Link>
+          <Link to={"/about"}>
             <li>about us</li>
-          </a>
+          </Link>
+          <Link to={"/debug"}>
+            <li>debug</li>
+          </Link>
         </ul>
     );
 };
