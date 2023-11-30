@@ -1,5 +1,6 @@
 import React, {createContext, useContext, useEffect, useState} from "react";
 import {useLocation} from "react-router-dom";
+import styles from "./historyNavigation.module.css"
 
 export const HistoryContext = createContext(null);
 

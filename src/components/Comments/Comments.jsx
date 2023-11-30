@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./comments.css";
+import styles from "./comments.module.css";
 
 const Comments = () => {
   const [commentText, setComment] = useState("");
@@ -26,12 +26,12 @@ const Comments = () => {
   };
 
   return (
-    <form className={"comment__form"} onSubmit={handleSubmit}>
+    <form className={styles.comment__form} onSubmit={handleSubmit}>
       <h3>Comments:</h3>
-      <div className={"comment__container"}>
+      <div className={styles.comment__container}>
         {comments.map((comment, key) => {
           return (
-            <div key={key} className={"comment"}>
+            <div key={key} className={styles.comment}>
               <span>Anonim</span>
               <hr />
               <span>{comment.content}</span>
@@ -41,14 +41,14 @@ const Comments = () => {
       </div>
       <h3>Add Comment:</h3>
       <textarea
-        className={"comment__textarea"}
+        className={styles.comment__textarea}
         value={commentText}
         onChange={handleChange}
         placeholder="Write your comment..."
       />
       <button
         onClick={() => addComment(commentText)}
-        className={"submit__button"}
+        className={styles.submit__button}
         type="submit"
       >
         Submit

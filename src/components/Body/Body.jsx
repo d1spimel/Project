@@ -9,6 +9,8 @@ import { Route, Routes } from "react-router-dom";
 import { createContext } from "react";
 import Debug from "../Debug/Debug";
 import { HistoryNavigation } from "../HistoryNavigation/HistoryNavigation";
+import styles from "./body.module.css"
+import AdminPage from "../AdminPanel/AdminPanel";
 
 let products = [
   { name: "iPhone", description: "Smartphone", price: "1000" },
@@ -74,6 +76,7 @@ export const Body = () => {
               <Route path="/contacts" element={<Contacts/>}/>
               <Route path="/about" element={<About/>}/>
               <Route path="/debug" element={<Debug/>}/>
+              <Route path="/admin" element={<AdminPage/>}/>
             </Routes>
           <Footer />
         </div>

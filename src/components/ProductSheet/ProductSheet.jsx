@@ -3,7 +3,7 @@ import CommentForm from "../Comments/Comments";
 import ProductInfo from "../ProductInfo/ProductInfo";
 import { useParams } from "react-router-dom";
 import { ProductContext } from "../Body/Body";
-import styles from "./productSheet.css";
+import styles from "./productSheet.module.css";
 
 
 const ProductSheet = () => {
@@ -21,7 +21,7 @@ const ProductSheet = () => {
         });
 
         return (
-          <div className="product__sheet__container">
+          <div className={styles.product__sheet__container}>
             <ProductInfo product={product} number={number} />
             <CommentForm />
           </div>

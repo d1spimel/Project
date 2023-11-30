@@ -1,9 +1,9 @@
-import styles from "./navbar.css"
 import { Link } from "react-router-dom";
+import styles from "./navbar.module.css";
 
 export const Navbar = () => {
     return (
-        <ul className="container__navbar">
+        <ul className={styles.container__navbar}>
           <Link to={"/"}>
             <li>catalog</li>
           </Link>
@@ -18,6 +18,9 @@ export const Navbar = () => {
           </Link>
           <Link to={"/debug"}>
             <li>debug</li>
+          </Link>
+          <Link to={"/admin"}>
+            <li>admin</li>
           </Link>
         </ul>
     );
