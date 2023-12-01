@@ -1,9 +1,12 @@
-import './App.css';
-import { Body } from './components/Body/Body';
+import "./App.css";
+import { Body } from "./components/Body/Body";
+import { ProductProvider } from "./providers/ProductProvider";
 
 function App() {
   return (
-      <Body/>
+    <ProductProvider>
+      <Body />
+    </ProductProvider>
   );
 }
 

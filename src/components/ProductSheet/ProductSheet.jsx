@@ -2,23 +2,23 @@ import React from "react";
 import CommentForm from "../Comments/Comments";
 import ProductInfo from "../ProductInfo/ProductInfo";
 import { useParams } from "react-router-dom";
-import { ProductContext } from "../Body/Body";
+import { ProductContext } from "../../providers/ProductProvider";
 import styles from "./productSheet.module.css";
-
 
 const ProductSheet = () => {
   const { number } = useParams();
 
   return (
     <ProductContext.Consumer>
-      {products => {
+      {(context) => {
+        let { products } = context;
         let product;
 
-        products.forEach((product_, index) => {
-          if (index == number) {
-            product = product_;
+        if (products && products.length > 0) {
+          if (number >= 0 && number < products.length) {
+            product = products[number];
           }
-        });
+        }
 
         return (
           <div className={styles.product__sheet__container}>
@@ -27,7 +27,9 @@ const ProductSheet = () => {
           </div>
         );
       }}
+
     </ProductContext.Consumer>
+    
   );
 };
 

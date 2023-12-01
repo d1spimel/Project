@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { Formik, Field, Form, ErrorMessage } from "formik";
 import useAuthorization from "../../hooks/useAuthorization";
 import useConsoleLogger from "../../hooks/useConsoleLogger";
-import { Modal, Button, Form, Input, Col } from "antd";
+import { Modal, Button, Input } from "antd";
 import styles from "./authorization.module.css";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 
@@ -14,12 +15,13 @@ export const Authorization = () => {
     setIsModalVisible(true);
   };
 
-  const handleOk = () => {
+  const handleOk = (values) => {
     setIsLoading(true);
     setTimeout(() => {
       setIsModalVisible(false);
       setIsLoading(false);
       toggleAuthorization();
+      // You can access form values here with 'values'
     }, 1000);
   };
 
@@ -50,8 +52,8 @@ export const Authorization = () => {
           </a>
           <Modal
             title="Authorization"
-            open={isModalVisible}
-            onOk={handleOk}
+            visible={isModalVisible}
+            onOk={() => {}}
             onCancel={handleCancel}
             centered
             footer={[
@@ -62,38 +64,49 @@ export const Authorization = () => {
                 key="submit"
                 type="primary"
                 loading={isLoading}
-                onClick={handleOk}
+                onClick={() => {}}
               >
                 Login
               </Button>,
             ]}
           >
-            <Form labelCol={{ span: 4 }}>
-              <Form.Item
-                label="Login"
-                name="username"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please, enter the username!",
-                  },
-                ]}
-              >
-                <Input prefix={<UserOutlined />}/>
-              </Form.Item>
-              <Form.Item
-                label="Password"
-                name="password"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please, enter the password!",
-                  },
-                ]}
-              >
-                <Input.Password prefix={<LockOutlined />}/>
-              </Form.Item>
-            </Form>
+            <Formik
+              initialValues={{ username: "", password: "" }}
+              validate={(values) => {
+                const errors = {};
+                if (!values.username) {
+                  errors.username = "Please, enter the username!";
+                }
+                if (!values.password) {
+                  errors.password = "Please, enter the password!";
+                }
+                return errors;
+              }}
+              onSubmit={(values) => handleOk(values)}
+            >
+              <Form labelCol={{ span: 4 }}>
+                <div>
+                  <label>Login</label>
+                  <Field
+                    type="text"
+                    name="username"
+                    prefix={<UserOutlined />}
+                    as={Input}
+                  />
+                  <ErrorMessage name="username" component="div" />
+                </div>
+                <div>
+                  <label>Password</label>
+                  <Field
+                    type="password"
+                    name="password"
+                    prefix={<LockOutlined />}
+                    as={Input.Password}
+                  />
+                  <ErrorMessage name="password" component="div" />
+                </div>
+              </Form>
+            </Formik>
           </Modal>
         </>
       )}
